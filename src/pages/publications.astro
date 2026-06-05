@@ -1,0 +1,90 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// =========================================================================
+// PAPERS - Artykuły naukowe
+// =========================================================================
+const papers = [
+  {
+    title: "RNAbridge: a database of extended and non-canonical helices",
+    authors: "Zakrzewski D., Antczak M., Zok T.",
+    journal: "Journal of Molecular Biology (JMB)",
+    status: "In preparation (Pre-submission)", 
+    year: "2026",
+  },
+  {
+    title: "[Title to be announced] - Research on TMU-16 and TMU-16 NH₂ MOFs",
+    authors: "Gościańska J., Ejsmont M., Zakrzewski D.",
+    journal: "TBA",
+    status: "In preparation",
+    year: "2026",
+  }
+];
+
+// =========================================================================
+// CONFERENCES - Konferencje (byłe i nadchodzące)
+// =========================================================================
+const conferences = [
+  {
+    name: "BIT 2026 (Bioinformatics in Torun)",
+    location: "Toruń, Poland",
+    date: "Upcoming",
+    type: "Poster Presentation", 
+    topic: "RNAbridge web application",
+  }
+];
+---
+
+<Layout title="Publications & Conferences | Damian Zakrzewski">
+	<main class="mt-4">
+		
+    <h1 class="font-['Cormorant_Garamond'] italic text-4xl sm:text-5xl text-slate-900 mb-12 tracking-wide leading-tight">
+			Publications & Academic Activity
+		</h1>
+		
+		<!-- SEKCJA 1: ARTYKUŁY -->
+		<section class="mb-16">
+			<h2 class="font-['Cormorant_Garamond'] italic text-2xl text-slate-900 mb-6 tracking-wide border-b border-slate-900/5 pb-2">
+				Journal Publications
+			</h2>
+			
+			<div class="space-y-8">
+				{papers.map((paper) => (
+					<div class="text-sm sm:text-base">
+						<h3 class="font-semibold text-slate-950 mb-1">{paper.title}</h3>
+						<!-- Tutaj Twoje nazwisko jest wyeksponowane, jako pierwszego autora -->
+						<p class="text-slate-600 text-sm">{paper.authors}</p>
+						<p class="text-xs text-slate-400 mt-1.5 uppercase tracking-wider font-bold">
+							{paper.journal} &middot; <span class="text-slate-600 font-medium">{paper.status}</span> ({paper.year})
+						</p>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<!-- SEKCJA 2: KONFERENCJE -->
+		<section class="mb-16">
+			<h2 class="font-['Cormorant_Garamond'] italic text-2xl text-slate-900 mb-6 tracking-wide border-b border-slate-900/5 pb-2">
+				Conferences & Symposia
+			</h2>
+			
+			<div class="space-y-8">
+				{conferences.map((conf) => (
+					<div class="text-sm sm:text-base">
+						<div class="flex items-start justify-between gap-4 flex-wrap sm:flex-nowrap">
+							<h3 class="font-semibold text-slate-950">{conf.name}</h3>
+							<span class="text-[10px] uppercase tracking-widest font-bold px-2 py-0.5 rounded bg-slate-900/5 text-slate-600 whitespace-nowrap">
+								{conf.type}
+							</span>
+						</div>
+						<p class="text-slate-500 text-xs mt-0.5">{conf.location} &middot; {conf.date}</p>
+						{conf.topic && (
+							<p class="text-slate-600 text-sm mt-2 italic">Presented/Focus: {conf.topic}</p>
+						)}
+					</div>
+				))}
+			</div>
+		</section>
+
+	</main>
+</Layout>

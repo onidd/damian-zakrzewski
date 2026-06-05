@@ -1,0 +1,40 @@
+---
+import Nav from '../components/Nav';
+import Footer from '../components/Footer';
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<html lang="en" class="scroll-smooth">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
+
+		<title>{title}</title>
+	</head>
+	<body class="bg-[#fcfbf8] text-slate-900 font-sans antialiased min-h-screen flex flex-col">
+		
+		<div class="fixed top-[-10%] left-[-5%] w-[40vw] h-[40vw] bg-slate-800/5 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+		
+		<div class="max-w-4xl mx-auto px-6 w-full flex flex-col flex-grow">
+			<Nav client:load />
+			
+			<main class="flex-grow">
+				<slot />
+			</main>
+
+			<Footer client:load />
+		</div>
+		
+	</body>
+</html>

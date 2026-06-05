@@ -1,0 +1,95 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// =========================================================================
+// EDYCJA DANYCH - Tutaj łatwo dodasz nowe projekty w przyszłości
+// =========================================================================
+
+// To jest lista Twoich projektów. Każdy projekt to "obiekt" w klamrach {}.
+// Możesz skopiować cały blok {} i wkleić go poniżej, żeby dodać nowy projekt.
+// Pamiętaj, żeby rozdzielać je przecinkiem.
+const projects = [
+  {
+    title: "RNABridge Web Application",
+    institution: "Poznań University of Technology",
+    supervisors: "Prof. M. Antczak, Prof. T. Żok",
+    role: "Lead Author",
+    // To jest krótki opis, który pojawi się w panelu. Użyłem tagu <a href="..."> dla linku.
+    description: "Developed and maintain the RNABridge web platform for analyzing RNA structural motifs. Lead author for the associated paper (Publication in preparation, pre-submission to JMB).",
+    // To jest link do projektu, jeśli istnieje (np. live demo)
+    link: "https://rnabridge.cs.put.poznan.pl",
+    linkText: "Live App",
+  },
+  {
+    title: "Synthesis of TMU-16 & TMU-16 NH₂ MOFs",
+    institution: "Adam Mickiewicz University (UAM)",
+    supervisors: "Prof. J. Gościańska, Dr. Ejsmont",
+    role: "Researcher (Wet-lab)",
+    description: "Synthesis and characterization of Metal-Organic Frameworks for gas separation applications. Active role in wet-lab experimentation and data analysis.",
+    // Jeśli nie ma linku, zostawiamy te pola puste
+    link: "",
+    linkText: "",
+  },
+  {
+    title: "Chemical Technology Support",
+    institution: "Poznań University of Technology (Chemical Technology Faculty)",
+    supervisors: "Dr. Grzywaczyk",
+    role: "Research Support (Dry & Wet Lab)",
+    description: "Providing computational and wet-lab assistance on chemical technology research projects.",
+    link: "",
+    linkText: "",
+  },
+];
+// =========================================================================
+---
+
+<Layout title="Research Projects | Damian Zakrzewski">
+	<main class="mt-4">
+		
+    <!-- Główny nagłówek "piórem" -->
+    <h1 class="font-['Cormorant_Garamond'] italic text-4xl sm:text-5xl text-slate-900 mb-12 tracking-wide leading-tight">
+			Research Projects
+		</h1>
+		
+		<!-- Schludna lista paneli (grid na dużych ekranach) -->
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+			
+      {/* Ta pętla JavaScript `{projects.map(...)}` automatycznie generuje panel dla każdego projektu z listy powyżej */}
+      {projects.map((project) => (
+				
+        <article class="bg-white border border-slate-900/5 p-7 rounded-lg shadow-sm hover:border-slate-900/10 hover:shadow-lg transition-all duration-300 flex flex-col">
+					
+          <!-- Nagłówek projektu -->
+					<h2 class="font-['Cormorant_Garamond'] italic text-2xl text-slate-950 mb-2 leading-snug">
+						{project.title}
+					</h2>
+					
+          <!-- Dane o instytucji i promotorach (mniejsze, atramentowe) -->
+					<div class="text-[11px] uppercase tracking-widest font-bold text-slate-400 mb-5 space-y-0.5">
+						<p>{project.institution}</p>
+						<p>Supervisors: {project.supervisors}</p>
+						<p class="text-slate-600 font-medium">Role: {project.role}</p>
+					</div>
+					
+          <!-- Opis (normalny, czytelny tekst) -->
+					<div class="text-slate-600 text-sm leading-relaxed mb-6 flex-grow">
+						{/* `set:html` pozwala nam używać tagów HTML (np. linków) bezpośrednio w opisie */}
+            <p set:html={project.description}></p>
+					</div>
+					
+          <!-- Dyskretny link na dole, jeśli istnieje -->
+					{project.link && (
+            <a href={project.link} target="_blank" class="text-slate-900 text-xs font-semibold underline decoration-slate-200 underline-offset-4 hover:decoration-slate-900 transition-colors inline-flex items-center gap-1.5 mt-auto">
+              {project.linkText}
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              </svg>
+            </a>
+          )}
+				
+        </article>
+			))}
+		
+    </div>
+	</main>
+</Layout>

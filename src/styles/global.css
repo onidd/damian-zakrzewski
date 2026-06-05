@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@layer utilities {
+    .animate-typewriter {
+    	display: inline-block;
+    	overflow: hidden;
+    	border-right: 1.5px solid #0f172a;
+    	white-space: nowrap;
+    	margin: 0 auto;
+    	animation: 
+      	typing 2.5s steps(30, end) forwards,
+      	blink-caret 0.75s step-end infinite;
+  }
+}
+
+/* Klatki kluczowe dla pisania tekstu (od szerokości 0 do 100%) */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* Klatki kluczowe dla migania kursora (stalówki) */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #0f172a }
+}
