@@ -3,61 +3,54 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Damian Zakrzewski | Bioinformatics">
-	<!-- Zmniejszyliśmy mt-20 na mt-4, żeby zlikwidować wielką dziurę -->
 	<main class="mt-4">
 		
-		<!-- Hero Section / About -->
-		<section id="about" class="mb-24">
-			<h1 class="font-['Cormorant_Garamond'] italic text-4xl sm:text-5xl text-slate-900 mb-10 tracking-wide leading-tight">
-				Bridging the gap between computational models and wet-lab reality.
-			</h1>
-			
-			<div class="max-w-2xl text-slate-600 leading-relaxed space-y-6 text-sm sm:text-base">
-				<p>
-					I am a 6th-semester bioinformatics student at Poznań University of Technology. 
-					My primary research interests revolve around <strong>RNA folding and structural biology</strong>. 
-					I thrive at the intersection of computer science and biology, actively working to translate 
-					dry-lab predictions into tangible wet-lab experiments.
-				</p>
-				
-				<p>
-					Currently, I am involved in several cross-disciplinary projects:
-				</p>
+		<!-- Zmieniony, punktowy nagłówek -->
+		<h1 class="font-['Cormorant_Garamond'] italic text-4xl sm:text-5xl text-slate-900 mb-8 tracking-wide leading-tight">
+			Bioinformatics Student. Web Developer. Research Assistant.
+		</h1>
+		
+		<!-- Nowy opis o Tobie -->
+		<div class="text-slate-600 leading-relaxed text-sm sm:text-base space-y-6 mb-12">
+			<p>
+				I am a 6th-semester bioinformatics student at Poznań University of Technology. My primary research interests revolve around <strong>RNA folding and structural biology</strong>, with a specific focus on the behavior of <strong>extended non-canonical helices</strong>.
+			</p>
+			<p>
+				I thrive at the intersection of computer science and biology, actively working to bridge the gap between computational predictions and physical reality. To achieve this, I am dedicated to developing my skills not only in dry-lab informatics and software development but also by embracing the rigorous methodologies and hands-on environment of wet-lab research.
+			</p>
+			<p>
+				Beyond my core academic research, I serve as an IT Administrator for the <strong>Solar Dynamics PUT</strong> science club, where I manage technical infrastructure and support interdisciplinary engineering initiatives.
+			</p>
+		</div>
 
-				<ul class="space-y-5 mt-6 mb-8 pl-1">
-					
-					<li class="flex items-start gap-4">
-						<span class="mt-2 w-1.5 h-1.5 rounded-full bg-slate-300 flex-shrink-0"></span>
-						<p>
-							<strong>RNA Structure Analysis:</strong> Lead author of the <a href="https://rnabridge.cs.put.poznan.pl" target="_blank" class="underline decoration-slate-200 underline-offset-4 hover:decoration-slate-900 transition-colors">RNABridge</a> web application under the supervision of Prof. M. Antczak and Prof. T. Żok <em>(Publication in preparation, pre-submission to JMB)</em>.
-						</p>
-					</li>
-					
-					<li class="flex items-start gap-4">
-						<span class="mt-2 w-1.5 h-1.5 rounded-full bg-slate-300 flex-shrink-0"></span>
-						<p>
-							<strong>Materials Chemistry:</strong> Synthesizing and modifying Metal-Organic Frameworks (TMU-16 and TMU-16 NH₂) at Adam Mickiewicz University in collaboration with Prof. J. Gościańska and Dr. Ejsmont.
-						</p>
-					</li>
-					
-					<li class="flex items-start gap-4">
-						<span class="mt-2 w-1.5 h-1.5 rounded-full bg-slate-300 flex-shrink-0"></span>
-						<p>
-							<strong>Chemical Technology:</strong> Providing computational and research support at the PUT Faculty of Chemical Technology under the guidance of Dr. Grzywaczyk.
-						</p>
-					</li>
-
-				</ul>
-
-				<p class="pt-2">
-					Beyond the laboratory, I serve as the administrator for the <a href="http://solardynamics.put.poznan.pl" target="_blank" class="underline decoration-slate-200 underline-offset-4 hover:decoration-slate-900 transition-colors">SolarDynamics</a> scientific club, fostering collaboration and innovation within the student community.
-				</p>
-			</div>
-		</section>
-
-		<section id="research" class="mb-32">
-			<!-- Tutaj będziemy budować projekty -->
-		</section>
-
+		<!-- Sekcja z obecnymi projektami, którą mieliśmy już wcześniej -->
+		<h2 class="text-[10px] uppercase tracking-widest font-bold text-slate-400 mb-6">Current Focus</h2>
+		
+		<ul class="space-y-6 text-sm sm:text-base text-slate-600 mb-12">
+			<li class="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-2 before:w-1 before:h-1 before:bg-slate-300 before:rounded-full">
+				<strong>RNA Structure Analysis:</strong> Lead author of the RNABridge web application under the supervision of Prof. M. Antczak and Prof. T. Żok <em>(Publication in preparation, pre-submission to JMB)</em>.
+			</li>
+			<li class="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-2 before:w-1 before:h-1 before:bg-slate-300 before:rounded-full">
+				<strong>Materials Chemistry:</strong> Synthesizing and modifying Metal-Organic Frameworks (TMU-16 and TMU-16 NH₂) at Adam Mickiewicz University in collaboration with Prof. J. Gościańska and Dr. A. Ejsmont.
+			</li>
+			<li class="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-2 before:w-1 before:h-1 before:bg-slate-300 before:rounded-full">
+				<strong>Chemical Technology:</strong> Collaborationg with Dr. Adam Grzywaczyk at the PUT Faculty of Chemical Technology on research concerning the toxicity of pharmaceuticals. 
+			</li>
+		</ul>
+<!-- Link do CV -->
+		<div class="mt-12 pt-8 border-t border-slate-900/5">
+			<a 
+				href="/CV_Damian_Zakrzewski.pdf" 
+				target="_blank" 
+				rel="noopener noreferrer"
+				class="group inline-flex items-center gap-3 text-xs sm:text-sm font-bold uppercase tracking-widest text-slate-900 hover:text-slate-500 transition-colors"
+			>
+				View Curriculum Vitae
+				<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
+					<path d="M7 7h10v10"/>
+					<path d="M7 17 17 7"/>
+				</svg>
+			</a>
+		</div>
 	</main>
 </Layout>
