@@ -71,7 +71,7 @@ const conferences = [
 			</h2>
 			
 			<div class="space-y-8">
-				{conferences.map((conf) => (
+		      	{conferences.map((conf) => (
                     <div class="text-sm sm:text-base">
                         <div class="flex items-start justify-between gap-4 flex-wrap sm:flex-nowrap">
                             <h3 class="font-semibold text-slate-950">{conf.name}</h3>
@@ -82,6 +82,13 @@ const conferences = [
                         <p class="text-slate-500 text-xs mt-0.5">{conf.location} &middot; {conf.date}</p>
                         {conf.topic && (
                             <p class="text-slate-600 text-sm mt-2 italic">Presented/Focus: {conf.topic}</p>
+                        )}
+                        {conf.link && (
+                            <div class="mt-3">
+                                <a href={conf.link} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline text-sm font-medium">
+                                    {conf.linkText}
+                                </a>
+                            </div>
                         )}
                     </div>
                 ))}
