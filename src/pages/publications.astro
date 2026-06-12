@@ -72,19 +72,19 @@ const conferences = [
 			
 			<div class="space-y-8">
 				{conferences.map((conf) => (
-					<div class="text-sm sm:text-base">
-						<div class="flex items-start justify-between gap-4 flex-wrap sm:flex-nowrap">
-							<h3 class="font-semibold text-slate-950">{conf.name}</h3>
-							<span class="text-[10px] uppercase tracking-widest font-bold px-2 py-0.5 rounded bg-slate-900/5 text-slate-600 whitespace-nowrap">
-								{conf.type}
-							</span>
-						</div>
-						<p class="text-slate-500 text-xs mt-0.5">{conf.location} &middot; {conf.date}</p>
-						{conf.topic && (
-							<p class="text-slate-600 text-sm mt-2 italic">Presented/Focus: {conf.topic}</p>
-						)}
-					</div>
-				))}
+                    <div class="text-sm sm:text-base">
+                        <div class="flex items-start justify-between gap-4 flex-wrap sm:flex-nowrap">
+                            <h3 class="font-semibold text-slate-950">{conf.name}</h3>
+                            <span class="text-[10px] uppercase tracking-widest font-bold px-2 py-0.5 rounded bg-slate-900/5 text-slate-600 whitespace-nowrap">
+                                {conf.type}
+                            </span>
+                        </div>
+                        <p class="text-slate-500 text-xs mt-0.5">{conf.location} &middot; {conf.date}</p>
+                        {conf.topic && (
+                            <p class="text-slate-600 text-sm mt-2 italic">Presented/Focus: {conf.topic}</p>
+                        )}
+                    </div>
+                ))}
 			</div>
 		</section>
 
