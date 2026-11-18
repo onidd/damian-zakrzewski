@@ -1,99 +1,133 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// =========================================================================
-// PAPERS - Artykuły naukowe
-// =========================================================================
 const papers = [
   {
-    title: "RNAbridge: a database of extended and non-canonical helices",
-    authors: "Zakrzewski D., Antczak M., Zok T.",
-    journal: "Journal of Molecular Biology (JMB)",
-    status: "In preparation (Pre-submission)", 
-    year: "2026",
+    title: "RNAbridge: a database of extended non-canonical helices",
+    authors: "Zakrzewski D., Antczak M., Żok T.",
+    journal: "Journal of Molecular Biology",
+    status: "Accepted for publication",
+    statusClass: "bg-emerald-50 text-emerald-700 ring-emerald-600/20",
   },
   {
-    title: "",
-    authors: "",
-    journal: "",
-    status: "In preparation",
-    year: "2026",
-  }
+    title:
+      "Comparative toxicity of cyclophosphamide, fluorouracil and methotrexate toward model Gram-negative bacteria",
+    journal: "Manuscript in preparation",
+    status: "In progress",
+    statusClass: "bg-amber-50 text-amber-700 ring-amber-600/20",
+    supervisor: "Dr. Adam Grzywaczyk",
+  },
 ];
 
-// =========================================================================
-// CONFERENCES - Konferencje (byłe i nadchodzące)
-// =========================================================================
 const conferences = [
   {
-    name: "BIT 2026 (Bioinformatics in Torun)",
+    name: "BIT 2026 — Bioinformatics in Toruń",
     location: "Toruń, Poland",
-    date: "Upcoming",
-    type: "Poster Presentation", 
+    year: "2026",
+    type: "Poster presentation",
     topic: "RNAbridge web application",
-    link: "/rnabridge.pdf",
-    linkText: "View Poster (PDF)",
-  }
+    status: "Completed",
+    statusClass: "bg-slate-100 text-slate-600 ring-slate-500/20",
+    links: [
+      {
+        href: "/rnabridge.pdf",
+        text: "View poster (PDF)",
+      },
+      {
+        href: "/A4_cerytfikat_BIT26_Damian_Zakrzewski.pdf",
+        text: "View certificate (PDF)",
+      },
+    ],
+  },
 ];
 ---
 
 <Layout title="Publications & Conferences | Damian Zakrzewski">
-	<main class="mt-4">
-		
+  <main class="mt-4">
     <h1 class="font-['Cormorant_Garamond'] italic text-4xl sm:text-5xl text-slate-900 mb-12 tracking-wide leading-tight">
-			Publications & Academic Activity
-		</h1>
-		
-		<!-- SEKCJA 1: ARTYKUŁY -->
-		<section class="mb-16">
-			<h2 class="font-['Cormorant_Garamond'] italic text-2xl text-slate-900 mb-6 tracking-wide border-b border-slate-900/5 pb-2">
-				Journal Publications
-			</h2>
-			
-			<div class="space-y-8">
-				{papers.map((paper) => (
-					<div class="text-sm sm:text-base">
-						<h3 class="font-semibold text-slate-950 mb-1">{paper.title}</h3>
-						<!-- Tutaj Twoje nazwisko jest wyeksponowane, jako pierwszego autora -->
-						<p class="text-slate-600 text-sm">{paper.authors}</p>
-						<p class="text-xs text-slate-400 mt-1.5 uppercase tracking-wider font-bold">
-							{paper.journal} &middot; <span class="text-slate-600 font-medium">{paper.status}</span> ({paper.year})
-						</p>
-					</div>
-				))}
-			</div>
-		</section>
+      Publications & Academic Activity
+    </h1>
 
-		<!-- SEKCJA 2: KONFERENCJE -->
-		<section class="mb-16">
-			<h2 class="font-['Cormorant_Garamond'] italic text-2xl text-slate-900 mb-6 tracking-wide border-b border-slate-900/5 pb-2">
-				Conferences & Symposia
-			</h2>
-			
-			<div class="space-y-8">
-		      	{conferences.map((conf) => (
-                    <div class="text-sm sm:text-base">
-                        <div class="flex items-start justify-between gap-4 flex-wrap sm:flex-nowrap">
-                            <h3 class="font-semibold text-slate-950">{conf.name}</h3>
-                            <span class="text-[10px] uppercase tracking-widest font-bold px-2 py-0.5 rounded bg-slate-900/5 text-slate-600 whitespace-nowrap">
-                                {conf.type}
-                            </span>
-                        </div>
-                        <p class="text-slate-500 text-xs mt-0.5">{conf.location} &middot; {conf.date}</p>
-                        {conf.topic && (
-                            <p class="text-slate-600 text-sm mt-2 italic">Presented/Focus: {conf.topic}</p>
-                        )}
-                        {conf.link && (
-                            <div class="mt-3">
-                                <a href={conf.link} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline text-sm font-medium">
-                                    {conf.linkText}
-                                </a>
-                            </div>
-                        )}
-                    </div>
-                ))}
-			</div>
-		</section>
+    <section class="mb-16">
+      <h2 class="font-['Cormorant_Garamond'] italic text-2xl text-slate-900 mb-6 tracking-wide border-b border-slate-900/5 pb-2">
+        Publications
+      </h2>
 
-	</main>
+      <div class="space-y-8">
+        {papers.map((paper) => (
+          <article class="text-sm sm:text-base">
+            <div class="flex flex-wrap items-start justify-between gap-3 mb-1">
+              <h3 class="font-semibold text-slate-950 leading-relaxed">
+                {paper.title}
+              </h3>
+
+              <span class={`shrink-0 rounded-full px-2.5 py-1 text-[9px] uppercase tracking-wider font-bold ring-1 ring-inset ${paper.statusClass}`}>
+                {paper.status}
+              </span>
+            </div>
+
+            {paper.authors && (
+              <p class="text-slate-600 text-sm">{paper.authors}</p>
+            )}
+
+            <p class="text-xs text-slate-400 mt-1.5 uppercase tracking-wider font-bold">
+              {paper.journal}
+            </p>
+
+            {paper.supervisor && (
+              <p class="text-slate-500 text-sm mt-2">
+                Supervisor: {paper.supervisor}
+              </p>
+            )}
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="mb-16">
+      <h2 class="font-['Cormorant_Garamond'] italic text-2xl text-slate-900 mb-6 tracking-wide border-b border-slate-900/5 pb-2">
+        Conferences & Symposia
+      </h2>
+
+      <div class="space-y-8">
+        {conferences.map((conf) => (
+          <article class="text-sm sm:text-base">
+            <div class="flex flex-wrap items-start justify-between gap-3">
+              <h3 class="font-semibold text-slate-950">{conf.name}</h3>
+
+              <div class="flex flex-wrap gap-2">
+                <span class="text-[10px] uppercase tracking-widest font-bold px-2 py-0.5 rounded bg-slate-900/5 text-slate-600">
+                  {conf.type}
+                </span>
+                <span class={`rounded-full px-2.5 py-1 text-[9px] uppercase tracking-wider font-bold ring-1 ring-inset ${conf.statusClass}`}>
+                  {conf.status}
+                </span>
+              </div>
+            </div>
+
+            <p class="text-slate-500 text-xs mt-1">
+              {conf.location} · {conf.year}
+            </p>
+
+            <p class="text-slate-600 text-sm mt-2 italic">
+              Presented: {conf.topic}
+            </p>
+
+            <div class="flex flex-wrap gap-x-5 gap-y-2 mt-3">
+              {conf.links.map((link) => (
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-blue-600 hover:underline text-sm font-medium"
+                >
+                  {link.text}
+                </a>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
 </Layout>
